@@ -9,4 +9,7 @@
     repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
   --container-width: clamp(375px, 100vw, 700px); /* ширина контейнера контента */
+  --card-label-shadow: #fff; /* цвет тени лейба на картинке */
+  --animation-fill-color: #ff0000; /* цвет заливки иконки сердца */
+  --contour-color: #000; /* цвет искр иконки сердца */
 }

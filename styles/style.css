@@ -4,7 +4,6 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
@@ -53,4 +52,207 @@
 .header__subtitle {
   text-transform: uppercase;
   font-size: clamp(0.875rem, 6.6667vw, 1.4375rem);
+}
+
+/* ОСНОВНОЙ КОНТЕНТ */
+.content__list {
+  display: grid;
+  gap: 50px;
+}
+
+/* карточка */
+.content__card {
+  background-color: #fff;
+}
+
+/* заголовок карточки */
+.content__card-title {
+  font-family: var(--font-main, sans-serif);
+  font-variation-settings: "wght" var(--font-weight-card-title, 715);
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px 10px;
+}
+
+/* обёртка для картинки */
+.content__card-image-wrapper {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  overflow: hidden;
+  position: relative;
+}
+
+/* лейбл на картинке */
+.content__card-label {
+  text-transform: uppercase;
+  font-family: var(--font-accent, sans-serif);
+  font-size: 14px;
+  line-height: 1;
+  color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  mix-blend-mode: hard-light;
+  text-shadow: 
+    -1px 0 var(--card-label-shadow, #fff),
+    1px 0 var(--card-label-shadow, #fff),
+    0 -1px var(--card-label-shadow, #fff),
+    0 1px var(--card-label-shadow, #fff);
+}
+
+/* проверка работоспобнсоти text-stroke */
+@supports (-webkit-text-stroke: 1px var(--card-label-shadow, #fff)) {
+  .content__card-label {
+    -webkit-text-stroke: 1px var(--card-label-shadow, #fff);
+    text-shadow: none;
+  }
+}
+
+/* картинка карточки */
+.content__card-image {
+  display: block;
+  block-size: 696px;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* текст под картинкой карточки */
+.content__card-text {
+  font-family: var(--font-main, sans-serif);
+  font-variation-settings: "wght" var(--font-weight-card-text, 410);
+  font-size: 18px;
+  display: grid;
+  gap: 25px;
+  padding: 25px;
+}
+
+/* иконка с кнопкой */
+.content__card-like {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 25px 25px;
+  gap: 10px;
+}
+
+/* кнопка сердце */
+.card__icon-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+/* общие стили кнопки */
+.button {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: 2px solid #000;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+/* */
+.button::before {
+  content: '';
+  position:absolute;
+  background-color: #000;
+  inset: 0;
+  z-index: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* кнопка лайк */
+.card__like-button {
+  inline-size: 130px;
+  padding: 10.5px 37px;
+}
+
+.button__text {
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.button .button__text {
+  position: relative;
+  color: #fff;
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+
+/* СОХРАНИТЬ */
+.save {
+  margin-block-start: 50px;
+  margin-block-end: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.save__button {
+  background-color: #fff;
+  padding: 15px 20px;
+  gap: 8px;
+}
+
+.save__button-icon {
+  color:#fff;
+  mix-blend-mode: difference;
+}
+
+/* ВСПЛЫВАЮЩЕЕ ОКНО */
+.dialog {
+  inline-size: 353px;
+  padding: 30px;
+  border: 2px solid #000;
+}
+
+.dialog[open] {
+  display: grid;
+  grid-template-rows: 1fr 40px;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.dialog__form {
+  display: contents;
+}
+
+.dialog__content {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 40px 1fr;
+  gap: 20px;
+}
+
+.dialog__icon {
+  block-size: 39px;
+  inline-size: 39px;
+  fill: currentColor;
+}
+
+.dialog__text {
+  text-transform: uppercase;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dialog__button {
+  text-transform: uppercase;
+  block-size: 38px;
+  inline-size: 100%;
 }

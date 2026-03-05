@@ -10,7 +10,7 @@
 
 */
 
-/* стили страницы */
+/* ВСЯ СТРАНИЦА */
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -19,4 +19,38 @@
   background-image: var(--background-page, #fff);
   background-attachment: fixed;
   background-size: cover;
+}
+
+/* КОНТЕЙНЕР ДЛЯ КОНТЕНТА */
+.container-content {
+  margin-inline: auto;
+  inline-size: var(--container-width, 100%);
+}
+
+/* ГРАНИЦА */
+.border-content {
+  border: 2px solid #000;
+}
+
+/* ШАПКА */
+.header {
+  background-color: #fff;
+  font-family: var(--font-accent, sans-serif);
+  text-align: center;
+  padding-block: 130px;
+  margin-block-start: 100px;
+  margin-block-end: 98px;
+}
+
+/* заголовок шапки */
+.header__title {
+  text-transform: uppercase;
+  font-size: clamp(3.0625rem, 14.2857vw, 4.0625rem);
+  margin-block-end: 20px;
+}
+
+/* подзаголовок шапки */
+.header__subtitle {
+  text-transform: uppercase;
+  font-size: clamp(0.875rem, 6.6667vw, 1.4375rem);
 }

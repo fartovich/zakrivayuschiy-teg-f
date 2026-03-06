@@ -1,1 +1,1 @@
-https://github.com/fartovich/zakrivayuschiy-teg-f.git
+https://github.com/fartovich/zakrivayuschiy-teg-f.git https://fartovich.github.io/zakrivayuschiy-teg-f/

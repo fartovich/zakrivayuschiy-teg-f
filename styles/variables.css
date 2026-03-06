@@ -4,7 +4,7 @@
   --font-accent: 'PressStart2P', sans-serif; /* акцентный, используется в заголовках и кнопках */
   --font-weight-card-title: 715; /* толщина заголовка карточки */
   --font-weight-card-text: 410; /* толщина основного текста карточки */
-  --background-page: /* фон страницы */
+  --background-page:            /* фон страницы */
     repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
     repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
@@ -12,4 +12,5 @@
   --card-label-shadow: #fff; /* цвет тени лейба на картинке */
   --animation-fill-color: #ff0000; /* цвет заливки иконки сердца */
   --contour-color: #000; /* цвет искр иконки сердца */
+  --focus-color: #000; /* цвет для фокуса кнопок */
 }

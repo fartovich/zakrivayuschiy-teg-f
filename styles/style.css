@@ -15,7 +15,7 @@
   min-block-size: 100dvb;
   font-family: var(--font-main, sans-serif);
   font-variation-settings: 'wght' var(--font-weight-card-text, 400);
-  background-image: var(--background-page, #fff);
+  background-image: var(--background-page, none);
   background-attachment: fixed;
   background-size: cover;
 }
@@ -44,20 +44,20 @@
 /* заголовок шапки */
 .header__title {
   text-transform: uppercase;
-  font-size: clamp(3.0625rem, 14.2857vw, 4.0625rem);
+  font-size: clamp(3.0625rem, 5vw, 4.0625rem);
   margin-block-end: 20px;
 }
 
 /* подзаголовок шапки */
 .header__subtitle {
   text-transform: uppercase;
-  font-size: clamp(0.875rem, 6.6667vw, 1.4375rem);
+  font-size: clamp(0.875rem, 3vw, 1.44rem);
 }
 
-/* ОСНОВНОЙ КОНТЕНТ */
+/* ОСНОВНОЙ КОНТЕНТ ! */
 .content__list {
   display: grid;
-  gap: 50px;
+  gap: 49px;
 }
 
 /* карточка */
@@ -99,6 +99,7 @@
     1px 0 var(--card-label-shadow, #fff),
     0 -1px var(--card-label-shadow, #fff),
     0 1px var(--card-label-shadow, #fff);
+  z-index: 1;
 }
 
 /* проверка работоспобнсоти text-stroke */
@@ -118,6 +119,39 @@
   object-position: center;
 }
 
+/* фильтры для картинок */
+.content__card-image-blur {
+  filter: blur(3px);
+}
+
+.content__card-image-contrast {
+  filter: contrast(3);
+}
+
+.content__card-image-sepia {
+  filter: sepia(3);
+}
+
+.content__card-image-invert {
+  filter: invert(1);
+}
+
+.content__card-image-many {
+  filter: contrast(1.5) blur(1px) hue-rotate(180deg) brightness(0.9);
+}
+
+.content__card-image-saturate {
+  filter: saturate(5);
+}
+
+.content__card-image-hue {
+  filter: hue-rotate(180deg);
+}
+
+.content__card-image-grayscale {
+  filter: grayscale(1);
+}
+
 /* текст под картинкой карточки */
 .content__card-text {
   font-family: var(--font-main, sans-serif);
@@ -128,24 +162,28 @@
   padding: 25px;
 }
 
-/* иконка с кнопкой */
+/* иконка с кнопкой ! */
 .content__card-like {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   padding: 0 25px 25px;
-  gap: 10px;
+  gap: 5px;
 }
 
 /* кнопка сердце */
 .card__icon-button {
   background: transparent;
-  border: none;
+  border: 2px solid transparent;
   padding: 0;
   outline: none;
   cursor: pointer;
   transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--focus-color, #000);
 }
 
 /* общие стили кнопки */
@@ -162,7 +200,6 @@
   transition: box-shadow 0.3s ease;
 }
 
-/* */
 .button::before {
   content: '';
   position:absolute;
@@ -173,6 +210,14 @@
   transition: transform 0.5s ease-in-out;
 }
 
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--focus-color, #000);
+}
+
+button:hover::before {
+  transform: translateX(0);
+}
+
 /* кнопка лайк */
 .card__like-button {
   inline-size: 130px;
@@ -180,7 +225,7 @@
 }
 
 .button__text {
-  font-family: var(--font-accent);
+  font-family: var(--font-accent, sans-serif);
   font-size: 14px;
   line-height: 1;
 }
@@ -192,9 +237,9 @@
   z-index: 1;
 }
 
-/* СОХРАНИТЬ */
+/* СОХРАНИТЬ !*/
 .save {
-  margin-block-start: 50px;
+  margin-block-start: 45px;
   margin-block-end: 100px;
   display: flex;
   justify-content: center;
@@ -204,15 +249,21 @@
   background-color: #fff;
   padding: 15px 20px;
   gap: 8px;
+  isolation: isolate;
 }
 
 .save__button-icon {
   color:#fff;
+  position: relative;
+  z-index: 1;
   mix-blend-mode: difference;
+  block-size: 21px;
+  inline-size: 21px;
 }
 
 /* ВСПЛЫВАЮЩЕЕ ОКНО */
 .dialog {
+  display: none;
   inline-size: 353px;
   padding: 30px;
   border: 2px solid #000;
@@ -221,6 +272,7 @@
 .dialog[open] {
   display: grid;
   grid-template-rows: 1fr 40px;
+  gap: 30px;
 }
 
 .dialog::backdrop {
@@ -233,15 +285,14 @@
 
 .dialog__content {
   display: grid;
-  align-items: center;
   grid-template-columns: 40px 1fr;
+  align-items: center;
   gap: 20px;
 }
 
 .dialog__icon {
   block-size: 39px;
   inline-size: 39px;
-  fill: currentColor;
 }
 
 .dialog__text {
@@ -255,4 +306,38 @@
   text-transform: uppercase;
   block-size: 38px;
   inline-size: 100%;
+}
+
+@media (width <= 375px) {
+  /* ШАПКА */
+  .header {
+    padding-block: 120px;
+    margin-block-end: 100px;
+  }
+
+  /* ОСНОВНОЙ КОНТЕНТ */
+  .content__card-image {
+    block-size: 373px;
+  }
+
+    /* СОХРАНИТЬ */
+  .save__button {
+    flex-direction: column;
+  }
+
+  .save__button-icon {
+    inline-size: 28px;
+    block-size: 28px;
+  }
+
+
+  /* ВСПЛЫВАЮЩЕЕ ОКНО */
+  .dialog {
+    inline-size: 341px;
+  }
+
+  .dialog__button {
+    inline-size: 261px;
+    justify-self: center;
+  }
 }

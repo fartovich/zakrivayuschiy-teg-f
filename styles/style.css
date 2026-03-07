@@ -214,7 +214,7 @@
   box-shadow: 2px 2px 0 var(--focus-color, #000);
 }
 
-button:hover::before {
+.button:hover::before {
   transform: translateX(0);
 }
 

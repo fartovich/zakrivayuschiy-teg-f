@@ -28,12 +28,12 @@
 
 /* ГРАНИЦА */
 .border-content {
-  border: 2px solid #000;
+  border: 2px solid var(--border-color, #000);
 }
 
 /* ШАПКА */
 .header {
-  background-color: #fff;
+  background-color: var(--background-color, #fff);
   font-family: var(--font-accent, sans-serif);
   text-align: center;
   padding-block: 130px;
@@ -62,7 +62,7 @@
 
 /* карточка */
 .content__card {
-  background-color: #fff;
+  background-color: var(--background-color, #fff);
 }
 
 /* заголовок карточки */
@@ -76,8 +76,8 @@
 
 /* обёртка для картинки */
 .content__card-image-wrapper {
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
+  border-top: 2px solid var(--border-color, #000);
+  border-bottom: 2px solid var(--border-color, #000);
   overflow: hidden;
   position: relative;
 }
@@ -88,7 +88,7 @@
   font-family: var(--font-accent, sans-serif);
   font-size: 14px;
   line-height: 1;
-  color: #000;
+  color: var(--card-label-color, #000);
   opacity: 0.5;
   position: absolute;
   top: 25px;
@@ -193,7 +193,7 @@
   justify-content: center;
   align-items: center;
   outline: none;
-  border: 2px solid #000;
+  border: 2px solid var(--border-color, #000);
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -203,7 +203,7 @@
 .button::before {
   content: '';
   position:absolute;
-  background-color: #000;
+  background-color: var(--button-color-hover, #000);
   inset: 0;
   z-index: 0;
   transform: translateX(-100%);
@@ -232,7 +232,7 @@ button:hover::before {
 
 .button .button__text {
   position: relative;
-  color: #fff;
+  color: var(--button-color-text, #fff);
   mix-blend-mode: difference;
   z-index: 1;
 }
@@ -246,14 +246,14 @@ button:hover::before {
 }
 
 .save__button {
-  background-color: #fff;
+  background-color: var(--background-color, #fff);
   padding: 15px 20px;
   gap: 8px;
   isolation: isolate;
 }
 
 .save__button-icon {
-  color:#fff;
+  color: var(--button-color-text, #fff);
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
@@ -266,7 +266,7 @@ button:hover::before {
   display: none;
   inline-size: 353px;
   padding: 30px;
-  border: 2px solid #000;
+  border: 2px solid var(--border-color, #000);
 }
 
 .dialog[open] {
@@ -276,7 +276,7 @@ button:hover::before {
 }
 
 .dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.75);
+  background-color: var(--dialog-backdrop, rgb(0 0 0 / 0.75));
 }
 
 .dialog__form {

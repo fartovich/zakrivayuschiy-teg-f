@@ -8,9 +8,15 @@
     repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
     repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+  --border-color: #000; /* цвет границ у шапки, основного контента, обёртки картинок, кнопки лайк и всплывающего окна */
+  --background-color: #fff; /* цвет фона шапки, карточек основного контента и кнопки сохранить */
   --container-width: clamp(375px, 100vw, 700px); /* ширина контейнера контента */
+  --card-label-color: #000; /* основной цвет лейба на картинке */
   --card-label-shadow: #fff; /* цвет тени лейба на картинке */
-  --animation-fill-color: #ff0000; /* цвет заливки иконки сердца */
   --contour-color: #000; /* цвет искр иконки сердца */
+  --animation-fill-color: #ff0000; /* цвет заливки иконки сердца */
   --focus-color: #000; /* цвет для фокуса кнопок */
+  --button-color-hover: #000; /* цвет анимации кнопки при наведении */
+  --button-color-text: #fff; /* цвет текста кнопки и иконки в кнопке сохранить, используется с mix-blend-mode */
+  --dialog-backdrop: rgb(0 0 0 / 0.75) ; /* цвет затемнения фона всплывающего окна */
 }
